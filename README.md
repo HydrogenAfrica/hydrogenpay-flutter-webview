@@ -48,8 +48,6 @@ You should already have your token, If not, go to [https://dashboard.hydrogenpay
 | token        | `String`   | Required | Your token or see above step to get yours                                   |
 | onSuccess    | `Function` | Required | Callback when transaction is successful                                     |
 | onCancel     | `Function` | Required | Callback when transaction is closed of cancel                               |
-| text         | `String`   | Optional | Payment Button Text. Default: Hydrogen Pay                                  |
-| className    | `String`   | Optional | Payment Button style                                                        |
 | isRecurring  | `boolean`  | Optional | Recurring Payment                                                           |
 | frequency    | `String`   | Optional | Recurring Payment frequency                                                 |
 | mode         | `String`   | Required | Payment Mode e.g LIVE, TEST (default: TEST)                                 |
