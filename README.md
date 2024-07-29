@@ -1,39 +1,122 @@
-<!--
-This README describes the package. If you publish this package to pub.dev,
-this README's contents appear on the landing page for your package.
+<p align="center">
+<img width="400" valign="top" src="https://hydrogenpay.com/wp-content/uploads/2023/05/logo.png" data-canonical-src="https://hydrogenpay.com/wp-content/uploads/2023/05/logo.png" style="max-width:100%; ">
+</p>
+ 
+# Hydrogen Flutter Webview SDK
+ 
+Hydrogen Flutter SDK can be used to integrate the Hydrogen payment gateway into your flutter application.
+ 
+## Requirements
+ 
+Register for a merchant account on [https://dashboard.hydrogenpay.com](https://dashboard.hydrogenpay.com) to get started.
+ 
+```
+   Dart sdk: ">=3.4.3 <4.0.0"
+   Flutter: ">=1.17.0"
+   Android: minSdkVersion 17 and add support for androidx (see AndroidX Migration to migrate an existing app)
+   iOS: --ios-language swift, Xcode version >= 12
+```
+ 
+ ## Installation
 
-For information about how to write a good package README, see the guide for
-[writing package pages](https://dart.dev/guides/libraries/writing-package-pages).
+```bash
+flutter pub get hydrogenpay_flutter_webview
+```
+ 
+## API Documentation
+ 
+https://docs.hydrogenpay.com
 
-For general information about developing packages, see the Dart guide for
-[creating packages](https://dart.dev/guides/libraries/create-library-packages)
-and the Flutter guide for
-[developing packages and plugins](https://flutter.dev/developing-packages).
--->
+ 
+## Support
 
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
+If you have any problems, questions or suggestions, create an issue here or send your inquiry to support@hydrogenpay.com
+ 
+## Implementation
 
-## Features
+You should already have your token, If not, go to [https://dashboard.hydrogenpay.com](https://dashboard.hydrogenpay.com).
+ 
+## Options Type
 
-TODO: List what your package can do. Maybe include images, gifs, or videos.
+| Name         | Type       | Required | Desc                                                                        |
+| ------------ | ---------- | -------- | --------------------------------------------------------------------------- |
+| currency     | `String`   | Required | The currency for the transaction e.g NGN, USD                               |
+| email        | `String`   | Required | The email of the user to be charged                                         |
+| description  | `String`   | Optional | The transaction description                                                 |
+| customerName | `String`   | Required | The fullname of the user to be charged                                      |
+| amount       | `Number`   | Required | The transaction amount                                                      |
+| token        | `String`   | Required | Your token or see above step to get yours                                   |
+| onSuccess    | `Function` | Required | Callback when transaction is successful                                     |
+| onCancel     | `Function` | Required | Callback when transaction is closed of cancel                               |
+| text         | `String`   | Optional | Payment Button Text. Default: Hydrogen Pay                                  |
+| className    | `String`   | Optional | Payment Button style                                                        |
+| isRecurring  | `boolean`  | Optional | Recurring Payment                                                           |
+| frequency    | `String`   | Optional | Recurring Payment frequency                                                 |
+| mode         | `String`   | Required | Payment Mode e.g LIVE, TEST (default: TEST)                                 |
+| endDate      | `String`   | Optional | Recurring Payment End Date. OPTIONAL but (REQUIRED when isRecurring = true) |
 
-## Getting started
-
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
-
+ 
 ## Usage
+ 
+```dart
+import 'package:flutter/material.dart';
+import 'package:hydrogenpay_flutter_webview/hydrogenpay_flutter_webview.dart';
 
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder.
+class PaymentTest extends StatelessWidget {
+const PaymentTest({Key? key}) : super(key: key);
+HydrogenPayMethod HydrogenPay = new HydrogenPayMethod();
+
+ @override
+  Widget build(BuildContext context) {
+    return Container(
+      color: Colors.white,
+      height: 1000,
+      width: 500,
+      child: Center(
+        child: TextButton(
+          onPressed: () => paymentStart(context),
+          child: Text(
+            "Hydrogen Pay",
+            style: TextStyle(color: Colors.red),
+          ),
+        ),
+      ),
+    );
+  }
+
+paymentStart(context){
+ PayloadModel payload = PayloadModel(
+  currency: 'NGN', // REQUIRED
+  email: "test@gmailinator.com", // REQUIRED
+  description: "Test Payment", // OPTIONAL
+  amount: "105", // REQUIRED
+  token: "Your Token", // REQUIRED
+  CustomerName: "John Doe", // REQUIRED
+  mode: "TEST", // REQUIRED
+  meta: "ewr34we4w", // OPTIONAL
+  isRecurring: false // OPTIONAL
+  fequency: 1, // OPTIONAL
+  endDate: "2025-10-02", // OPTIONAL but (REQUIRED when isRecurring: true)
+);
+
+HydrogenPay.startPayment(
+  context, 
+  payload: payload,
+  onSuccess: (#) { print(#);}, 
+  onCancel: (_) { print('_' _ 200);}
+);
+
+}
+}
+
+````
+
+You can simply end the process by calling
 
 ```dart
-const like = 'sample';
-```
+HydrogenPayMethod.endPayment(context);
+````
 
-## Additional information
+This removes the checkout view from the screen.
 
-TODO: Tell users more about the package: where to find more information, how to
-contribute to the package, how to file issues, what response they can expect
-from the package authors, and more.
+

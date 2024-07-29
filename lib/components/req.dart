@@ -45,17 +45,24 @@ String initRequest(
       window.flutter_inappwebview.callHandler(JSON.stringify(response))
     }
 
+    function callback(response) {
+       window.flutter_inappwebview.callHandler('success', JSON.stringify(response));
+    }
+
     async function openDialogModal(token) {
       paymentResponse =  handlePgData(paymentObject, token, onClose);
       paymentResponse = await paymentResponse
+      callback(paymentResponse)
     }
 
     openDialogModal("${model.token}")
+
 
     let checkStatus = setInterval(async function() {
       const checkPaymentStatus = await handlePaymentStatus(paymentResponse, "${model.token}");
         if(checkPaymentStatus.status === "Paid"){
             onSuccess(checkPaymentStatus)
+            callback(checkPaymentStatus)
             clearInterval(checkStatus)
          }
       }, 2000)
@@ -84,7 +91,7 @@ void displaySnack(BuildContext context,
       text!,
       textAlign: TextAlign.center,
     ),
-    backgroundColor: Colors.red,
+    backgroundColor: Colors.yellow,
     duration: Duration(seconds: 2),
   ));
 }

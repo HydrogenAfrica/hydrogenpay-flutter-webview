@@ -10,8 +10,8 @@ import 'package:hydrogenpay_flutter_webview/components/req.dart';
 
 import 'state.dart';
 
-class WebViewOne extends StatefulWidget {
-  const WebViewOne(
+class WebViewScreen extends StatefulWidget {
+  const WebViewScreen(
       {Key? key,
       required this.payload,
       required this.onSuccess,
@@ -22,10 +22,10 @@ class WebViewOne extends StatefulWidget {
   final ValueSetter<dynamic> onCancel;
 
   @override
-  _WebViewOneState createState() => new _WebViewOneState();
+  _WebViewScreenState createState() => new _WebViewScreenState();
 }
 
-class _WebViewOneState extends State<WebViewOne> {
+class _WebViewScreenState extends State<WebViewScreen> {
   final GlobalKey webViewKey = GlobalKey();
 
   InAppWebViewController? webViewController;
@@ -90,27 +90,13 @@ class _WebViewOneState extends State<WebViewOne> {
                           controller.addJavaScriptHandler(
                               handlerName: 'success',
                               callback: (_) {
+                                print(_[0]);
+                                // webViewState.setConsole(_.toString());
                                 webViewState.setResponse(_);
-                                if (webViewState.reportLink == "about:blank") {
-                                  if (_[0].toString().contains('code')) {
-                                    widget.onSuccess(jsonDecode(_[0]));
-                                  } else {
-                                    webViewState.setUrl(_[0]
-                                        .toString()
-                                        .substring(1, _[0].length - 1));
-                                    webViewState.switchView(false);
-
-                                    webViewState.controller!.loadUrl(
-                                        urlRequest: URLRequest(
-                                            url: Uri.parse(
-                                                webViewState.currentUrl)));
-                                  }
-                                } else {
-                                  widget.onSuccess(jsonDecode(_[0]));
-                                  // if (widget.payload.closeOnSuccess ?? false) {
-                                  //   Navigator.pop(context);
-                                  // }
-                                }
+                                widget.onSuccess(jsonDecode(_[0]));
+                                // if (widget.payload.closeOnSuccess ?? false) {
+                                //   Navigator.pop(context);
+                                // }
                               });
                           controller.addJavaScriptHandler(
                               handlerName: 'failure',

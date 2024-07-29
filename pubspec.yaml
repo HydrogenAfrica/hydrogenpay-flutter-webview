@@ -1,7 +1,7 @@
 name: hydrogenpay_flutter_webview
 description: "A new Flutter package project."
 version: 0.0.1
-homepage:
+homepage: https://github.com/HydrogenAfrica/hydrogenpay-flutter-webview.git
 
 environment:
   sdk: '>=3.4.3 <4.0.0'

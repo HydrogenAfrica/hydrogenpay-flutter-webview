@@ -56,6 +56,10 @@ class WebViewState extends ChangeNotifier {
     notifyListeners();
   }
 
+  void closeModal(dynamic value) {
+    Navigator.pop(value);
+  }
+
   /// Sets the console logger
   void setConsole(String value) {
     consoleLog = "Console: " + value;

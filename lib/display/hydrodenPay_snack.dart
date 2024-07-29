@@ -12,7 +12,7 @@ void displaySnack(BuildContext context,
       text!,
       textAlign: TextAlign.center,
     ),
-    backgroundColor: Colors.red,
+    backgroundColor: Colors.yellow,
     duration: Duration(seconds: 2),
   ));
 }
