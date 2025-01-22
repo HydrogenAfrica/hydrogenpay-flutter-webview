@@ -34,7 +34,7 @@ If you have any problems, questions or suggestions, create an issue here or send
  
 ## Implementation
 
-You should already have your token, If not, go to [https://dashboard.hydrogenpay.com](https://dashboard.hydrogenpay.com).
+You should already have your API KEY, If not, go to [https://dashboard.hydrogenpay.com](https://dashboard.hydrogenpay.com).
  
 ## Options Type
 
