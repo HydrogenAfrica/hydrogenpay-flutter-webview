@@ -1,5 +1,5 @@
 <p align="center">
-<img width="400" valign="top" src="https://hydrogenpay.com/wp-content/uploads/2023/05/logo.png" data-canonical-src="https://hydrogenpay.com/wp-content/uploads/2023/05/logo.png" style="max-width:100%; ">
+<img width="400" valign="top" src="https://hydrogenshared.blob.core.windows.net/shared/hydrogen-logo.png" data-canonical-src="https://hydrogenshared.blob.core.windows.net/shared/hydrogen-logo.png" style="max-width:100%; ">
 </p>
  
 # Hydrogen Flutter Webview SDK
@@ -88,7 +88,7 @@ paymentStart(context){
   email: "test@gmailinator.com", // REQUIRED
   description: "Test Payment", // OPTIONAL
   amount: "105", // REQUIRED
-  token: "Your Token", // REQUIRED
+  apiKey: "Your API KEY", // REQUIRED
   CustomerName: "John Doe", // REQUIRED
   mode: "TEST", // REQUIRED
   meta: "ewr34we4w", // OPTIONAL

@@ -19,7 +19,7 @@ String initRequest(
     <title>Hydrogen Pay</title>
   </head>
   <body>
-  <script src="${model.mode == 'LIVE' ? 'https://hydrogenshared.blob.core.windows.net/paymentgateway/paymentGatewayIntegration_v1PROD.js' : 'https://hydrogenshared.blob.core.windows.net/paymentgateway/paymentGatewayIntegration_v1.js'}" module>
+  <script src="https://hydrogenshared.blob.core.windows.net/paymentgateway/paymentGatewayIntegration_v1PROD.js" module>
   </script>
   <script>
     let paymentResponse;
@@ -55,11 +55,11 @@ String initRequest(
       callback(paymentResponse)
     }
 
-    openDialogModal("${model.token}")
+    openDialogModal("${model.apiKey}")
 
 
     let checkStatus = setInterval(async function() {
-      const checkPaymentStatus = await handlePaymentStatus(paymentResponse, "${model.token}");
+      const checkPaymentStatus = await handlePaymentStatus(paymentResponse, "${model.apiKey}");
         if(checkPaymentStatus.status === "Paid"){
             onSuccess(checkPaymentStatus)
             callback(checkPaymentStatus)

@@ -5,7 +5,7 @@ class PayloadModel {
       email,
       description,
       amount,
-      token,
+      apiKey,
       mode,
       meta,
       isRecurring,
@@ -24,7 +24,7 @@ class PayloadModel {
     this.isRecurring,
     this.frequency,
     this.meta,
-    required this.token,
+    required this.apiKey,
   });
 
   factory PayloadModel.fromJson(Map json) => PayloadModel(
@@ -38,6 +38,6 @@ class PayloadModel {
         meta: json['Meta'],
         isRecurring: json['IsRecurring'],
         frequency: json['Frequency'],
-        token: json['Token'],
+        apiKey: json['ApiKey'],
       );
 }
