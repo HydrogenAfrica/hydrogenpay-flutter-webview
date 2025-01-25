@@ -41,8 +41,7 @@ class PaymentTest extends StatelessWidget {
         amount: "102",
         customerName: "Amos Test",
         mode: "TEST",
-        token:
-            "E2E411B102072296C73F76339497FB8529FF552F0D6817E0F3B46A243961CA21");
+        apiKey: "PK_TEST_cca53e0b3bc7847aff94502b8a585f84");
     HydrogenPay.startPayment(context, payload: payload, onSuccess: (_) {
       print(_);
 

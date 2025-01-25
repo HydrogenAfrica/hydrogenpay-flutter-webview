@@ -45,7 +45,7 @@ You should already have your API KEY, If not, go to [https://dashboard.hydrogenp
 | description  | `String`   | Optional | The transaction description                                                 |
 | customerName | `String`   | Required | The fullname of the user to be charged                                      |
 | amount       | `Number`   | Required | The transaction amount                                                      |
-| token        | `String`   | Required | Your token or see above step to get yours                                   |
+| apiKey        | `String`   | Required | Your apiKey or see above step to get yours                                   |
 | onSuccess    | `Function` | Required | Callback when transaction is successful                                     |
 | onCancel     | `Function` | Required | Callback when transaction is closed of cancel                               |
 | isRecurring  | `boolean`  | Optional | Recurring Payment                                                           |
