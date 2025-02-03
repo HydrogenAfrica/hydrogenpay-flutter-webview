@@ -82,7 +82,8 @@ class _WebViewScreenState extends State<WebViewScreen> {
                         gestureRecognizers:
                             [Factory(() => EagerGestureRecognizer())].toSet(),
                         initialUrlRequest: URLRequest(
-                            url: createUri(widget.payload, webViewState)),
+                            url: WebUri(createUri(widget.payload, webViewState)
+                                .toString())),
                         initialOptions: options,
                         onWebViewCreated: (controller) {
                           webViewController = controller;

@@ -6,3 +6,8 @@
 
 ## [1.0.7] - 24-01-2025
 * update readme file
+
+## [1.0.8] - 31-01-2025
+* Fix android bundle issue
+* Update Flutter in-app webview version
+* Update ReadMe file

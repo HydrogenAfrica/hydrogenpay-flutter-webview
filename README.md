@@ -50,7 +50,6 @@ You should already have your API KEY, If not, go to [https://dashboard.hydrogenp
 | onCancel     | `Function` | Required | Callback when transaction is closed of cancel                               |
 | isRecurring  | `boolean`  | Optional | Recurring Payment                                                           |
 | frequency    | `String`   | Optional | Recurring Payment frequency                                                 |
-| mode         | `String`   | Required | Payment Mode e.g LIVE, TEST (default: TEST)                                 |
 | endDate      | `String`   | Optional | Recurring Payment End Date. OPTIONAL but (REQUIRED when isRecurring = true) |
 
  
@@ -90,7 +89,6 @@ paymentStart(context){
   amount: "105", // REQUIRED
   apiKey: "Your API KEY", // REQUIRED
   CustomerName: "John Doe", // REQUIRED
-  mode: "TEST", // REQUIRED
   meta: "ewr34we4w", // OPTIONAL
   isRecurring: false // OPTIONAL
   fequency: 1, // OPTIONAL
