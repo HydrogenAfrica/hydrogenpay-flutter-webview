@@ -44,12 +44,12 @@ You should already have your API KEY, If not, go to [https://dashboard.hydrogenp
 | email        | `String`   | Required | The email of the user to be charged                                         |
 | description  | `String`   | Optional | The transaction description                                                 |
 | customerName | `String`   | Required | The fullname of the user to be charged                                      |
-| amount       | `Number`   | Required | The transaction amount                                                      |
+| amount       | `String`   | Required | The transaction amount                                                      |
 | apiKey        | `String`   | Required | Your apiKey or see above step to get yours                                   |
 | onSuccess    | `Function` | Required | Callback when transaction is successful                                     |
 | onCancel     | `Function` | Required | Callback when transaction is closed of cancel                               |
 | isRecurring  | `boolean`  | Optional | Recurring Payment                                                           |
-| frequency    | `String`   | Optional | Recurring Payment frequency                                                 |
+| frequency    | `Number`   | Optional | Recurring Payment frequency                                                 |
 | endDate      | `String`   | Optional | Recurring Payment End Date. OPTIONAL but (REQUIRED when isRecurring = true) |
 
  
