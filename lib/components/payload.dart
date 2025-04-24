@@ -7,10 +7,12 @@ class PayloadModel {
       amount,
       apiKey,
       meta,
-      isRecurring,
-      frequency,
       callbackUrl,
+      endDate,
       customerName;
+
+  final num? frequency;
+  final bool? isRecurring;
 
   PayloadModel({
     required this.currency,
@@ -22,6 +24,7 @@ class PayloadModel {
     this.isRecurring,
     this.frequency,
     this.meta,
+    this.endDate,
     required this.apiKey,
   });
 

@@ -38,7 +38,7 @@ class PaymentTest extends StatelessWidget {
         currency: 'NGN',
         email: "test@gmailinator.com",
         description: "Sneakers",
-        amount: "102",
+        amount: "50",
         customerName: "Amos Test",
         apiKey: "PK_TEST_cca53e0b3bc7847aff94502b8a585f84"
         );

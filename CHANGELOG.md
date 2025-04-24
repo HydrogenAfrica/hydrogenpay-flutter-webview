@@ -11,3 +11,9 @@
 * Fix android bundle issue
 * Update Flutter in-app webview version
 * Update ReadMe file
+
+## [1.0.9] - 24-04-2025
+* Fix onCancel callback event
+* Fix Recurrent Payment
+* Update ReadMe file
+* update in-app webview config

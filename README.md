@@ -44,12 +44,12 @@ You should already have your API KEY, If not, go to [https://dashboard.hydrogenp
 | email        | `String`   | Required | The email of the user to be charged                                         |
 | description  | `String`   | Optional | The transaction description                                                 |
 | customerName | `String`   | Required | The fullname of the user to be charged                                      |
-| amount       | `Number`   | Required | The transaction amount                                                      |
+| amount       | `String`   | Required | The transaction amount                                                      |
 | apiKey        | `String`   | Required | Your apiKey or see above step to get yours                                   |
 | onSuccess    | `Function` | Required | Callback when transaction is successful                                     |
 | onCancel     | `Function` | Required | Callback when transaction is closed of cancel                               |
 | isRecurring  | `boolean`  | Optional | Recurring Payment                                                           |
-| frequency    | `String`   | Optional | Recurring Payment frequency                                                 |
+| frequency    | `Number`   | Optional | Recurring Payment frequency                                                 |
 | endDate      | `String`   | Optional | Recurring Payment End Date. OPTIONAL but (REQUIRED when isRecurring = true) |
 
  
@@ -88,10 +88,10 @@ paymentStart(context){
   description: "Test Payment", // OPTIONAL
   amount: "105", // REQUIRED
   apiKey: "Your API KEY", // REQUIRED
-  CustomerName: "John Doe", // REQUIRED
+  customerName: "John Doe", // REQUIRED
   meta: "ewr34we4w", // OPTIONAL
   isRecurring: false // OPTIONAL
-  fequency: 1, // OPTIONAL
+  frequency: 1, // OPTIONAL
   endDate: "2025-10-02", // OPTIONAL but (REQUIRED when isRecurring: true)
 );
 
