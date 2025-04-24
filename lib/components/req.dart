@@ -37,7 +37,7 @@ String initRequest(
 
     function onClose(e) {
       var response = {event:'close', e};
-      window.flutter_inappwebview.callHandler(JSON.stringify(response))
+      window.flutter_inappwebview.callHandler("close", JSON.stringify(response))
     }
 
     function onSuccess(e) {

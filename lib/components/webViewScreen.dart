@@ -31,8 +31,10 @@ class _WebViewScreenState extends State<WebViewScreen> {
   InAppWebViewController? webViewController;
   InAppWebViewGroupOptions options = InAppWebViewGroupOptions(
       crossPlatform: InAppWebViewOptions(
-        useShouldOverrideUrlLoading: true,
+        useShouldOverrideUrlLoading: false,
         mediaPlaybackRequiresUserGesture: false,
+        javaScriptEnabled: true,
+        userAgent: "*"
       ),
       android: AndroidInAppWebViewOptions(
         useHybridComposition: true,
@@ -92,19 +94,14 @@ class _WebViewScreenState extends State<WebViewScreen> {
                               handlerName: 'success',
                               callback: (_) {
                                 print(_[0]);
-                                // webViewState.setConsole(_.toString());
                                 webViewState.setResponse(_);
                                 widget.onSuccess(jsonDecode(_[0]));
-                                // if (widget.payload.closeOnSuccess ?? false) {
-                                //   Navigator.pop(context);
-                                // }
                               });
                           controller.addJavaScriptHandler(
-                              handlerName: 'failure',
+                              handlerName: 'close',
                               callback: (_) {
                                 widget.onCancel(jsonDecode(_[0]));
                                 Navigator.pop(context);
-                                // Navigator.pop(context);
                               });
                         },
                         onLoadStart: (controller, url) {

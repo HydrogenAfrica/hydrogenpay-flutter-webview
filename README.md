@@ -88,10 +88,10 @@ paymentStart(context){
   description: "Test Payment", // OPTIONAL
   amount: "105", // REQUIRED
   apiKey: "Your API KEY", // REQUIRED
-  CustomerName: "John Doe", // REQUIRED
+  customerName: "John Doe", // REQUIRED
   meta: "ewr34we4w", // OPTIONAL
   isRecurring: false // OPTIONAL
-  fequency: 1, // OPTIONAL
+  frequency: 1, // OPTIONAL
   endDate: "2025-10-02", // OPTIONAL but (REQUIRED when isRecurring: true)
 );
 
