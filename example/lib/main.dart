@@ -45,7 +45,7 @@ class PaymentTest extends StatelessWidget {
         description: "Sneakers",
         amount: "50",
         customerName: "Amos Test",
-        apiKey: "PK_LIVE_0b2cabb4fb3a020647e50b7f3c437767",
+        apiKey: "PK_TEST_cca53e0b3bc7847aff94502b8a585f84",
         legacy: true
         );
 
