@@ -51,6 +51,7 @@ You should already have your API KEY, If not, go to [https://dashboard.hydrogenp
 | isRecurring  | `boolean`  | Optional | Recurring Payment                                                           |
 | frequency    | `Number`   | Optional | Recurring Payment frequency                                                 |
 | endDate      | `String`   | Optional | Recurring Payment End Date. OPTIONAL but (REQUIRED when isRecurring = true) |
+| legacy       | `boolean`   | Optional | use for Legacy browsers eg Android 10 and below |
 
  
 ## Usage

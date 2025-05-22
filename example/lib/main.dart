@@ -4,9 +4,14 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:hydrogenpay_flutter_webview/components/methods.dart';
 import 'package:hydrogenpay_flutter_webview/components/payload.dart';
+import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 
 Future main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
+    // if (Platform.isAndroid) {
+    InAppWebViewController.setWebContentsDebuggingEnabled(true);
+  // }
 
   runApp(MaterialApp(home: PaymentTest()));
 }
@@ -40,7 +45,8 @@ class PaymentTest extends StatelessWidget {
         description: "Sneakers",
         amount: "50",
         customerName: "Amos Test",
-        apiKey: "PK_TEST_cca53e0b3bc7847aff94502b8a585f84"
+        apiKey: "PK_TEST_cca53e0b3bc7847aff94502b8a585f84",
+        legacy: true
         );
 
     HydrogenPay.startPayment(context, payload: payload, onSuccess: (_) {
