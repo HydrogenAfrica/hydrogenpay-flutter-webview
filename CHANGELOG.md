@@ -17,3 +17,7 @@
 * Fix Recurrent Payment
 * Update ReadMe file
 * update in-app webview config
+
+## [1.1.0] - 22-05-2025
+* Add support for legacy browsers
+* Update ReadMe file
