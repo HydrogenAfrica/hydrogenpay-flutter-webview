@@ -48,9 +48,10 @@ You should already have your API KEY, If not, go to [https://dashboard.hydrogenp
 | apiKey        | `String`   | Required | Your apiKey or see above step to get yours                                   |
 | onSuccess    | `Function` | Required | Callback when transaction is successful                                     |
 | onCancel     | `Function` | Required | Callback when transaction is closed of cancel                               |
-| isRecurring  | `boolean`  | Optional | Recurring Payment                                                           |
+| isRecurring  | `Boolean`  | Optional | Recurring Payment                                                           |
 | frequency    | `Number`   | Optional | Recurring Payment frequency                                                 |
 | endDate      | `String`   | Optional | Recurring Payment End Date. OPTIONAL but (REQUIRED when isRecurring = true) |
+| legacy       | `Boolean`   | Optional | use for Legacy browsers eg Android 10 and below |
 
  
 ## Usage

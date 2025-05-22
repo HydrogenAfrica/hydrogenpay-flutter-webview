@@ -13,6 +13,7 @@ class PayloadModel {
 
   final num? frequency;
   final bool? isRecurring;
+  final bool? legacy;
 
   PayloadModel({
     required this.currency,
@@ -25,6 +26,7 @@ class PayloadModel {
     this.frequency,
     this.meta,
     this.endDate,
+    this.legacy,
     required this.apiKey,
   });
 
@@ -39,5 +41,6 @@ class PayloadModel {
         isRecurring: json['IsRecurring'],
         frequency: json['Frequency'],
         apiKey: json['ApiKey'],
+        legacy: json['Legacy'],
       );
 }
