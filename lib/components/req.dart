@@ -191,7 +191,9 @@ function applyModalStyle(widthPercentage) {
       "isAPI": false,
       "isRecurring":${model.isRecurring},
       "frequency":${model.frequency},
-      "CustomerName":"${model.customerName}"
+      "CustomerName":"${model.customerName}",
+      "transactionRef":${model.transactionRef?.isNotEmpty == true ? '"${model.transactionRef}"' : 'null'},
+      "metaData": ${model.metaData != null ? jsonEncode(model.metaData) : 'null'},
     }
 
     function onClose(e) {
