@@ -1,6 +1,6 @@
 name: hydrogenpay_flutter_webview
 description: "Flutter Wrapper for Hydrogen Payment Gateway."
-version: 1.1.0
+version: 1.1.1
 homepage: https://github.com/HydrogenAfrica/hydrogenpay-flutter-webview.git
 
 environment:

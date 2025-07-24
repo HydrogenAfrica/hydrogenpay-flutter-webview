@@ -9,8 +9,8 @@ import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 Future main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-    // if (Platform.isAndroid) {
-    InAppWebViewController.setWebContentsDebuggingEnabled(true);
+  //   if (Platform.isAndroid) {
+  //   InAppWebViewController.setWebContentsDebuggingEnabled(true);
   // }
 
   runApp(MaterialApp(home: PaymentTest()));
@@ -46,7 +46,16 @@ class PaymentTest extends StatelessWidget {
         amount: "50",
         customerName: "Amos Test",
         apiKey: "PK_TEST_cca53e0b3bc7847aff94502b8a585f84",
-        legacy: true
+        transactionRef: "TRX-${DateTime.now().millisecondsSinceEpoch}-${Random().nextInt(1000)}",
+        // metaData: [
+        //   MetadataField(
+        //     fieldName: "uniqueId",
+        //     fieldDefaultValue: "DevStore14",
+        //     fieldKey: "uniqueId",
+        //     fieldType: 1,
+        //   ),
+        // ],
+        legacy: false
         );
 
     HydrogenPay.startPayment(context, payload: payload, onSuccess: (_) {

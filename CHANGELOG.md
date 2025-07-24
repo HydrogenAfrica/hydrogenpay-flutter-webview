@@ -21,3 +21,8 @@
 ## [1.1.0] - 22-05-2025
 * Add support for legacy browsers
 * Update ReadMe file
+
+## [1.1.1] - 24-07-2025
+* Add transactionRef field
+* Add metaData field
+* Update ReadMe file

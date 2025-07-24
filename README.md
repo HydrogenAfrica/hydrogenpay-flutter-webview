@@ -51,6 +51,8 @@ You should already have your API KEY, If not, go to [https://dashboard.hydrogenp
 | isRecurring  | `boolean`  | Optional | Recurring Payment                                                           |
 | frequency    | `Number`   | Optional | Recurring Payment frequency                                                 |
 | endDate      | `String`   | Optional | Recurring Payment End Date. OPTIONAL but (REQUIRED when isRecurring = true) |
+| transactionRef      | `String`   | Optional | Custom Transaction reference |
+| metaData      | `Array`   | Optional | Transaction meta data |
 | legacy       | `boolean`   | Optional | use for Legacy browsers eg Android 10 and below |
 
  
@@ -94,6 +96,15 @@ paymentStart(context){
   isRecurring: false // OPTIONAL
   frequency: 1, // OPTIONAL
   endDate: "2025-10-02", // OPTIONAL but (REQUIRED when isRecurring: true)
+  transactionRef: "", // OPTIONAL
+  // metaData: [
+  //   MetadataField(
+  //     fieldName: "uniqueId",
+  //     fieldDefaultValue: "DevStore14",
+  //     fieldKey: "uniqueId",
+  //     fieldType: 1,
+  //   ),
+  // ],
 );
 
 HydrogenPay.startPayment(
