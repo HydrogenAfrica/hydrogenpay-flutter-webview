@@ -53,7 +53,6 @@ You should already have your API KEY, If not, go to [https://dashboard.hydrogenp
 | endDate      | `String`   | Optional | Recurring Payment End Date. OPTIONAL but (REQUIRED when isRecurring = true) |
 | transactionRef      | `String`   | Optional | Custom Transaction reference |
 | metaData      | `Array`   | Optional | Transaction meta data |
-| endDate      | `String`   | Optional | Recurring Payment End Date. OPTIONAL but (REQUIRED when isRecurring = true) |
 | legacy       | `boolean`   | Optional | use for Legacy browsers eg Android 10 and below |
 
  
