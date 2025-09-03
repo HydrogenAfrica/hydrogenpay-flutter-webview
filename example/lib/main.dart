@@ -10,7 +10,7 @@ Future main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
     // if (Platform.isAndroid) {
-    InAppWebViewController.setWebContentsDebuggingEnabled(true);
+    // InAppWebViewController.setWebContentsDebuggingEnabled(true);
   // }
 
   runApp(MaterialApp(home: PaymentTest()));
@@ -46,7 +46,7 @@ class PaymentTest extends StatelessWidget {
         amount: "50",
         customerName: "Amos Test",
         apiKey: "PK_TEST_cca53e0b3bc7847aff94502b8a585f84",
-        transactionRef: "TRX-${DateTime.now().millisecondsSinceEpoch}-${Random().nextInt(1000)}",
+        // transactionRef: "TRX-${DateTime.now().millisecondsSinceEpoch}-${Random().nextInt(1000)}",
         // metaData: [
         //   MetadataField(
         //     fieldName: "uniqueId",

@@ -29,19 +29,23 @@ class _WebViewScreenState extends State<WebViewScreen> {
   final GlobalKey webViewKey = GlobalKey();
 
   InAppWebViewController? webViewController;
-  InAppWebViewGroupOptions options = InAppWebViewGroupOptions(
-      crossPlatform: InAppWebViewOptions(
-        useShouldOverrideUrlLoading: false,
-        mediaPlaybackRequiresUserGesture: false,
-        javaScriptEnabled: true,
-        userAgent: "*"
-      ),
-      android: AndroidInAppWebViewOptions(
-        useHybridComposition: true,
-      ),
-      ios: IOSInAppWebViewOptions(
-        allowsInlineMediaPlayback: true,
-      ));
+  InAppWebViewSettings options = InAppWebViewSettings(
+    useShouldOverrideUrlLoading: false,
+    mediaPlaybackRequiresUserGesture: false,
+    javaScriptEnabled: true,
+    userAgent: "*",
+    useHybridComposition: true, // Android-specific
+    allowsInlineMediaPlayback: true, // iOS-specific
+    javaScriptCanOpenWindowsAutomatically: true,
+    transparentBackground: true,
+    useOnLoadResource: true,
+    supportMultipleWindows: true,
+    domStorageEnabled: true,
+    databaseEnabled: true,
+    clearCache: true,
+    thirdPartyCookiesEnabled: true,
+    mixedContentMode: MixedContentMode.MIXED_CONTENT_ALWAYS_ALLOW,
+  );
 
   late PullToRefreshController pullToRefreshController;
   String url = "";
@@ -82,18 +86,21 @@ class _WebViewScreenState extends State<WebViewScreen> {
                       InAppWebView(
                         key: webViewKey,
                         gestureRecognizers:
-                            [Factory(() => EagerGestureRecognizer())].toSet(),
+                            {Factory(() => EagerGestureRecognizer())},
                         initialUrlRequest: URLRequest(
                             url: WebUri(createUri(widget.payload, webViewState)
                                 .toString())),
-                        initialOptions: options,
-                        onWebViewCreated: (controller) {
+                        initialSettings: options,
+                        onWebViewCreated: (controller) async {
                           webViewController = controller;
                           webViewState.setControllerOne(controller);
+
+                          // Clear cache to ensure fresh SSL certificate is fetched
+                          await InAppWebViewController.clearAllCache();
                           controller.addJavaScriptHandler(
                               handlerName: 'success',
                               callback: (_) {
-                                print(_[0]);
+                                // print(_[0]);
                                 webViewState.setResponse(_);
                                 widget.onSuccess(jsonDecode(_[0]));
                               });
@@ -104,13 +111,21 @@ class _WebViewScreenState extends State<WebViewScreen> {
                                 Navigator.pop(context);
                               });
                         },
+                        onReceivedServerTrustAuthRequest: (controller, challenge) async {
+                          // Only bypass SSL for payment-v1.hydrogenpay.com domain
+                          if (challenge.protectionSpace.host == "payment-v1.hydrogenpay.com") {
+                            return ServerTrustAuthResponse(action: ServerTrustAuthResponseAction.PROCEED);
+                          }
+                          // For other domains, use default certificate validation
+                          return ServerTrustAuthResponse(action: ServerTrustAuthResponseAction.CANCEL);
+                        },
                         onLoadStart: (controller, url) {
                           webViewState.setProgress(true);
                         },
                         onLoadStop: (controller, url) async {
                           webViewState.setProgress(false);
                         },
-                        onLoadError: (controller, url, code, message) {
+                        onReceivedError: (controller, request, error) {
                           webViewState.setProgress(false);
                           Navigator.pop(context);
                         },

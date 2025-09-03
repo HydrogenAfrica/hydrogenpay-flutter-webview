@@ -26,3 +26,6 @@
 * Add transactionRef field
 * Add metaData field
 * Update ReadMe file
+
+## [1.1.2] - 03-09-2025
+* fix SSL validation issue
